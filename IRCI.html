@@ -97,11 +97,13 @@
                 <br>
                 <div id="p3q8">
                     Was there an announced discussion hour?<br>
-                    <input type="radio" name="p3q8" required>Yes<br>
-                    <input type="radio" name="p3q8" required>No<br>
+                    <!-- <input type="radio" name="p3q8" required>Yes<br>
+                    <input type="radio" name="p3q8" required>No<br> -->
+                    <input type="radio" name="p3q8" required onclick="document.getElementById('p4').style.display = 'block'">Yes<br>
+                    <input type="radio" name="p3q8" required onclick="document.getElementById('p4').style.display = 'none'">No<br>
                 </div>
             </div>
-            <div id="p4">
+            <div id="p4" style="display:none;">
                 <h3>Discussion Hours</h3>
                 <div id="p4q1">
                     How many discussion hours were held per semester?<br>
