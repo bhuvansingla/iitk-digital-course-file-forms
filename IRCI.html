@@ -1,185 +1,301 @@
 <html>
-    <head>
-        <title> Impressions & Recommendations of Course Instructors </title>
-    </head>
-    <body>
-        <form>
-            <h2>Impressions and Recommendations of Course Instructor</h2>
+<head>
+	<title> Impressions & Recommendations of Course Instructors </title>
+	<link href="./jquery-ui-1.12/jquery-ui.css" rel="stylesheet">
+	<style>
+		body{
+            font-family: "Trebuchet MS", sans-serif;
+            margin: 50px;
+        }
+        .demoHeaders {
+            margin-top: 2em;
+        }
+        #dialog-link {
+            padding: .4em 1em .4em 20px;
+            text-decoration: none;
+            position: relative;
+        }
+        #dialog-link span.ui-icon {
+            margin: 0 5px 0 0;
+            position: absolute;
+            left: .2em;
+            top: 50%;
+            margin-top: -8px;
+        }
+        #icons {
+            margin: 0;
+            padding: 0;
+        }
+        #icons li {
+            margin: 2px;
+            position: relative;
+            padding: 4px 0;
+            cursor: pointer;
+            float: left;
+            list-style: none;
+        }
+        #icons span.ui-icon {
+            float: left;
+            margin: 0 4px;
+        }
+        .fakewindowcontain .ui-widget-overlay {
+            position: absolute;
+        }
+        select {
+            width: 200px;
+        }
+        </style>
+</head>
 
-            <div id="p1">
-                <h3>Number of Classes (Standard Duration)</h3>
-                <div id="p1q1">
-                    Planned classes this semester? *<br>
-                    <input type="text" required><br>
-                </div> 
-                <br>
-                <div id="p1q2">
-                    The number of classes you managed to take? *<br>
-                    <input type="text" required><br>
-                </div>
-            </div>
+<body>
+	<form>
+		<h2>Impressions and Recommendations of Course Instructor</h2>
+		<div id="accordion">
+			<h3>Number of Classes (Standard Duration)</h3>
+			<div id="p1">
+				<div id="p1q1">
+					Planned classes this semester? *<br>
+					<input type="text" required><br>
+				</div>
+				<br>
+				<div id="p1q2">
+					The number of classes you managed to take? *<br>
+					<input type="text" required><br>
+				</div>
+			</div>
 
-            <div id="p2">
-                <h3>Content</h3>
-                <div id="p2q1">
-                    Were you able to comfortably cover the course content with the desired pace? *<br>
-                    <input type="radio" name="p2q1" required>Strongly Disagree<br>
-                    <input type="radio" name="p2q1" required>Disagree<br>
-                    <input type="radio" name="p2q1" required>Agree Somewhat<br>
-                    <input type="radio" name="p2q1" required>Mostly Agree<br>
-                    <input type="radio" name="p2q1" required>Strongly Agree<br>
+			<h3>Content</h3>
+			<div id="p2">
+				<div id="p2q1">
+					Were you able to comfortably cover the course content with the desired pace? *<br>
+					<div class="radioset">
+						<input type="radio" id="p2q11" name="p2q1" required >
+						<label for="p2q11">Strongly Disagree</label>
+						<input type="radio" id="p2q12" name="p2q1" required >
+						<label for="p2q12">Disagree</label>
+						<input type="radio" id="p2q13" name="p2q1" required >
+						<label for="p2q13">Agree Somewhat</label>
+						<input type="radio" id="p2q14" name="p2q1" required >
+						<label for="p2q14">Mostly Agree</label>
+						<input type="radio" id="p2q15" name="p2q1" required >
+						<label for="p2q15">Strongly Agree</label>
+					</div>
+				</div>
+				<br>
+				<div id="p2q2">
+					Was there a need for content modification?<br>
+					<div class="radioset">
+						<input type="radio" id="p2q21" name="p2q2" required onclick="document.getElementById('p2q3').style.display = 'block'">
+						<label for="p2q21">Yes</label>
+						<input type="radio" id="p2q22" name="p2q2" required onclick="document.getElementById('p2q3').style.display = 'none'">
+						<label for="p2q22">No</label>
+					</div>
+				</div>
+				<div id="p2q3" style="display:none;">
+					<br>
+					What changes in content would you suggest for future implementation?<br>
+					<input type="text"><br>
+				</div>
+				<br>
+				<div id="p2q4">
+					Please give an estimate of preparation time you had to devote beyond contact hours (per week).<br>
+					<input type="text" required><br>
+				</div>
+			</div>
 
-                </div>
-                <br>
-                <div id="p2q2">
-                        Was there a need for content modification?<br>
-                    <input type="radio" name="p2q2" required onclick="document.getElementById('p2q3').style.display = 'block'">Yes<br>
-                    <input type="radio" name="p2q2" required onclick="document.getElementById('p2q3').style.display = 'none'">No<br>
-                </div>
-                <div id="p2q3" style="display:none;">
-                    <br>
-                    What changes in content would you suggest for future implementation?<br>
-                    <input type="text"><br>
-                </div>
-                <br>
-                <div id="p2q4">
-                    Please give an estimate of preparation time you had to devote beyond contact hours (per week).<br>
-                    <input type="text" required><br>
-                </div>
-            </div>
+			<h3>Conduct of Course</h3>
+			<div id="p3">
+				<div id="p3q1">
+					Was there a website devoted to the course?<br>
+					<div class="radioset">
+						<input type="radio" id="radiop31" name="p3q1" required >
+						<label for="radiop31">Yes</label>
+						<input type="radio" id="radiop32" name="p3q1" required >
+						<label for="radiop32">No</label>
+					</div>
+				</div>
+				<br>
+				<div id="p3q2">
+					Did you use any Learning Management System (LMS)?<br>
+					<div class="radioset">
+						<input type="radio" id="radio1" name="p3q2" required onclick="document.getElementById('p3q3').style.display = 'block'">
+						<label for="radio1">Yes</label>
+						<input type="radio" id="radio2" name="p3q2" required onclick="document.getElementById('p3q3').style.display = 'none'">
+						<label for="radio2">No</label>
+					</div>
+				</div>
+				<div id="p3q3" style="display:none;">
+					<br>
+					Please give feedback of LMS<br>
+					<input type="text"><br>
+				</div>
+				<br>
+				<div id="p3q4">
+					Please give an estimate of preparation time you had to devote beyond contact hours (per week).<br>
+					<input type="text" required><br>
+				</div>
+				<br>
+				<div id="p3q5">
+					Give an estimate of the average attendance. <br>
+					<div class="radioset">
+						<input type="radio" id="p3q51" name="p3q5" required >
+						<label for="p3q51">0-20%</label>
+						<input type="radio" id="p3q52" name="p3q5" required >
+						<label for="p3q52">20-40%</label>
+						<input type="radio" id="p3q53" name="p3q5" required >
+						<label for="p3q53">40-60%</label>
+						<input type="radio" id="p3q54" name="p3q5" required >
+						<label for="p3q54">60-80%</label>
+						<input type="radio" id="p3q55" name="p3q5" required >
+						<label for="p3q55">80-100%</label>
+					</div>
+				</div>
+				<br>
+				<div id="p3q6">
+					Mention any systematic observation worth noting about attendance.<br>
+					<input type="text" required><br>
+				</div>
+				<br>
+				<div id="p3q7">
+					In your opinion, how actively did the students participate? <br>
+					<div class="radioset">
+						<input type="radio" id="p3q71" name="p3q7" required >
+						<label for="p3q71">Not at all</label>
+						<input type="radio" id="p3q72" name="p3q7" required >
+						<label for="p3q72">Slightly</label>
+						<input type="radio" id="p3q73" name="p3q7" required >
+						<label for="p3q73">Moderately</label>
+						<input type="radio" id="p3q74" name="p3q7" required >
+						<label for="p3q74">Actively</label>
+						<input type="radio" id="p3q75" name="p3q7" required >
+						<label for="p3q75">Very actively</label>
+					</div>
+				</div>
+				<br>
+				<div id="p3q8">
+					Was there an announced discussion hour?<br>
+					<div class="radioset">
+						<input type="radio" id="p3q81" name="p3q8" required onclick="document.getElementById('p4').style.display = 'block'">
+						<label for="p3q81">Yes</label>
+						<input type="radio" id="p3q82" name="p3q8" required onclick="document.getElementById('p4').style.display = 'none'">
+						<label for="p3q82">No</label>
+					</div>
+				</div>
+				<br>
+				<div id="p4" style="display:none;">
+					<div id="p4q1">
+						How many discussion hours were held per semester?<br>
+						<input type="text"><br>
+					</div>
+					<br>
+					<div id="p4q2">
+						How was the average attendance in discussion hour? <br>
+						<div class="radioset">
+							<input type="radio" id="p4q21" name="p4q2" required >
+							<label for="p4q21">0-20%</label>
+							<input type="radio" id="p4q22" name="p4q2" required >
+							<label for="p4q22">20-40%</label>
+							<input type="radio" id="p4q23" name="p4q2" required >
+							<label for="p4q23">40-60%</label>
+							<input type="radio" id="p4q24" name="p4q2" required >
+							<label for="p4q24">60-80%</label>
+							<input type="radio" id="p4q25" name="p4q2" required >
+							<label for="p4q25">80-100%</label>
+						</div>
+					</div>
+					<br>
+					<div id="p4q3">
+						How was the quality of participation in discussion hour?<br>
+						<div class="radioset">
+							<input type="radio" id="p4q31" name="p4q3" required >
+							<label for="p4q31">Very Poor</label>
+							<input type="radio" id="p4q32" name="p4q3" required >
+							<label for="p4q32">Poor</label>
+							<input type="radio" id="p4q33" name="p4q3" required >
+							<label for="p4q33">Average</label>
+							<input type="radio" id="p4q34" name="p4q3" required >
+							<label for="p4q34">Good</label>
+							<input type="radio" id="p4q35" name="p4q3" required >
+							<label for="p4q35">Very Good</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<h3>Evaluation and Grading</h3>
+			<div id="p5">
+				<div id="p5q1">
+					Was grading policy changed during the semester?<br>
+					<div class="radioset">
+						<input type="radio" id="p5q11" name="p5q1" required onclick="document.getElementById('p5q2').style.display = 'block'">
+						<label for="p5q11">Yes</label>
+						<input type="radio" id="p5q12" name="p5q1" required onclick="document.getElementById('p5q2').style.display = 'none'">
+						<label for="p5q12">No</label>
+					</div>
+				</div>
+				<div id="p5q2" style="display:none;">
+					<br>
+					Please state if there were any changes that became necessary in evaluation components ?<br>
+					<input type="text"><br>
+				</div>
+				<br>
+				<div id="p5q3">
+					Comment on specific features regarding performance of students that you may have noticed?<br>
+					<input type="text"><br>
+				</div>
+				<br>
+				<div id="p5q4">
+					How was the quality of participation in discussion hour?<br>
+					<div class="radioset">
+						<input type="radio" id="p5q41" name="p5q4" required >
+						<label for="p5q41">Very Dissatisfied</label>
+						<input type="radio" id="p5q42" name="p5q4" required >
+						<label for="p5q42">Dissatisfied</label>
+						<input type="radio" id="p5q43" name="p5q4" required >
+						<label for="p5q43">Okay</label>
+						<input type="radio" id="p5q44" name="p5q4" required >
+						<label for="p5q44">Satisfied</label>
+						<input type="radio" id="p5q45" name="p5q4" required >
+						<label for="p5q45">Very Satisfied</label>
+					</div>
+				</div>
+				<br>
+				<div id="p5q5">
+					Please mention any observations or note-worthy features regarding the garding procedure and grade distribution?<br>
+					<input type="text"><br>
+				</div>
+			</div>
+			<h3>Pedagogical Innovations</h3>
+			<div id="p6">
+				<div id="p6q1">
+					Please mention in brief if you tried any pedagogical innovations (such as flipped class, use of Learning
+					Management System, new logical sequencing of topics etc.). SCDMC will contact you for further details<br>
+					<input type="text"><br>
+				</div>
+				<br>
+				<div id="p6q2">
+					Suggestions for Action<br>
+					<input type="text"><br>
+				</div>
+				<br>
+				<div id="p6q3">
+					Please suggest or comment on any aspect that HoD/DPGC/DUGC /SCDMC should take note of<br>
+					<input type="text"><br>
+				</div>
+			</div>
+			<br>
+			<input type="submit">
+		</div>
+	</form>
+	<script src="jquery-ui-1.12/external/jquery/jquery.js"></script>
+	<script src="jquery-ui-1.12/jquery-ui.js"></script>
+	<script>
+		$("#accordion").accordion({
+			collapsible: true,
+			heightStyle: "content"
+		});
 
-            <div id="p3">
-                <h3>Conduct of Course</h3>
-                <div id="p3q1">
-                    Was there a website devoted to the course?<br>
-                    <input type="radio" name="p3q1" required>Yes<br>
-                    <input type="radio" name="p3q1" required>No<br>
-                </div>
-                <br>
-                <div id="p3q2">
-                    Did you use any Learning Management System (LMS)?<br>
-                    <input type="radio" name="p3q2" required onclick="document.getElementById('p3q3').style.display = 'block'">Yes<br>
-                    <input type="radio" name="p3q2" required onclick="document.getElementById('p3q3').style.display = 'none'">No<br>
-                </div>
-                <div id="p3q3" style="display:none;">
-                    <br>
-                    Please give feedback of LMS<br>
-                    <input type="text"><br>
-                </div>
-                <br>
-                <div id="p3q4">
-                    Please give an estimate of preparation time you had to devote beyond contact hours (per week).<br>
-                    <input type="text" required><br>
-                </div>
-                <br>
-                <div id="p3q5">
-                    Give an estimate of the average attendance. <br>
-                    <input type="radio" name="p3q5" required>0-20%<br>
-                    <input type="radio" name="p3q5" required>20-40%<br>
-                    <input type="radio" name="p3q5" required>40-60%<br>
-                    <input type="radio" name="p3q5" required>60-80%<br>
-                    <input type="radio" name="p3q5" required>80-100%<br>
-                </div>
-                <br>
-                <div id="p3q6">
-                    Mention any systematic observation worth noting about attendance.<br>
-                    <input type="text" required><br>
-                </div>
-                <br>
-                <div id="p3q7">
-                    In your opinion, how actively did the students participate? <br>
-                    <input type="radio" name="p3q7" required>Not at all<br>
-                    <input type="radio" name="p3q7" required>Slightly<br>
-                    <input type="radio" name="p3q7" required>Moderately<br>
-                    <input type="radio" name="p3q7" required>Actively<br>
-                    <input type="radio" name="p3q7" required>Very actively<br>
-                </div>
-                <br>
-                <div id="p3q8">
-                    Was there an announced discussion hour?<br>
-                    <!-- <input type="radio" name="p3q8" required>Yes<br>
-                    <input type="radio" name="p3q8" required>No<br> -->
-                    <input type="radio" name="p3q8" required onclick="document.getElementById('p4').style.display = 'block'">Yes<br>
-                    <input type="radio" name="p3q8" required onclick="document.getElementById('p4').style.display = 'none'">No<br>
-                </div>
-            </div>
-            <div id="p4" style="display:none;">
-                <h3>Discussion Hours</h3>
-                <div id="p4q1">
-                    How many discussion hours were held per semester?<br>
-                    <input type="text"><br>
-                </div>
-                <br>
-                 <div id="p4q2">
-                    How was the average attendance in discussion hour? <br>
-                    <input type="radio" name="p4q2" required>0-20%<br>
-                    <input type="radio" name="p4q2" required>20-40%<br>
-                    <input type="radio" name="p4q2" required>40-60%<br>
-                    <input type="radio" name="p4q2" required>60-80%<br>
-                    <input type="radio" name="p4q2" required>80-100%<br>
-                </div>
-                <br>
-                <div id="p4q3">
-                    How was the quality of participation in discussion hour?<br>
-                    <input type="radio" name="p4q3" required>Very Poor<br>
-                    <input type="radio" name="p4q3" required>Poor<br>
-                    <input type="radio" name="p4q3" required>Average<br>
-                    <input type="radio" name="p4q3" required>Good<br>
-                    <input type="radio" name="p4q3" required>Very Good<br>
-                </div>
-            </div>
-            <div id="p5">
-                <h3>Evaluation and Grading</h3>
-                <div id="p5q1">
-                    Was grading policy changed during the semester?<br>
-                    <input type="radio" name="p5q1" required onclick="document.getElementById('p5q2').style.display = 'block'">Yes<br>
-                    <input type="radio" name="p5q1" required onclick="document.getElementById('p5q2').style.display = 'none'">No<br>
-                </div>
-                <div id="p5q2" style="display:none;">
-                    <br>
-                    Please state if there were any changes that became necessary in evaluation components ?<br>
-                    <input type="text"><br>
-                </div>
-                <br>
-                <div id="p5q3">
-                    Comment on specific features regarding performance of students that you may have noticed?<br>
-                    <input type="text" ><br>
-                </div>
-                <br>
-                <div id="p5q4">
-                    How was the quality of participation in discussion hour?<br>
-                    <input type="radio" name="p5q4" required>Very Dissatisfied<br>
-                    <input type="radio" name="p5q4" required>Dissatisfied<br>
-                    <input type="radio" name="p5q4" required>Okay<br>
-                    <input type="radio" name="p5q4" required>Satisfied<br>
-                    <input type="radio" name="p5q4" required>Very Satisfied<br>
-                </div>
-                <br>
-                <div id="p5q5">
-                    Please mention any observations or note-worthy features regarding the garding procedure and grade distribution?<br>
-                    <input type="text"><br>
-                </div>
-            </div>
-            <div id="p6">
-                <h3>Pedagogical Innovations</h3>
-                <div id="p6q1">
-                    Please mention in brief if you tried any pedagogical innovations (such as flipped class, use of Learning Management System, new logical sequencing of topics etc.). SCDMC will contact you for further details<br>
-                    <input type="text"><br>
-                </div>
-                <br>
-                <div id="p6q2">
-                    Suggestions for Action<br>
-                    <input type="text"><br>
-                </div>
-                <br>
-                <div id="p6q3">
-                    Please suggest or comment on any aspect that HoD/DPGC/DUGC /SCDMC should take note of<br>
-                    <input type="text"><br>
-                </div>
-            </div>
-            <br>
-            <input type="submit">
-        </form>
-    </body>
+		$(".radioset").buttonset();
+		
+	</script>
+</body>
 </html>
-
