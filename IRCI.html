@@ -1,50 +1,13 @@
 <html>
 <head>
 	<title> Impressions & Recommendations of Course Instructors </title>
-	<link href="./jquery-ui-1.12/jquery-ui.css" rel="stylesheet">
+	<link href="./jquery-ui-1.12/jquery-ui.min.css" rel="stylesheet">
 	<style>
 		body{
-            font-family: "Trebuchet MS", sans-serif;
-            margin: 50px;
-        }
-        .demoHeaders {
-            margin-top: 2em;
-        }
-        #dialog-link {
-            padding: .4em 1em .4em 20px;
-            text-decoration: none;
-            position: relative;
-        }
-        #dialog-link span.ui-icon {
-            margin: 0 5px 0 0;
-            position: absolute;
-            left: .2em;
-            top: 50%;
-            margin-top: -8px;
-        }
-        #icons {
-            margin: 0;
-            padding: 0;
-        }
-        #icons li {
-            margin: 2px;
-            position: relative;
-            padding: 4px 0;
-            cursor: pointer;
-            float: left;
-            list-style: none;
-        }
-        #icons span.ui-icon {
-            float: left;
-            margin: 0 4px;
-        }
-        .fakewindowcontain .ui-widget-overlay {
-            position: absolute;
-        }
-        select {
-            width: 200px;
-        }
-        </style>
+			font-family: "Trebuchet MS", sans-serif;
+			margin: 50px;
+		}
+	</style>
 </head>
 
 <body>
@@ -54,13 +17,13 @@
 			<h3>Number of Classes (Standard Duration)</h3>
 			<div id="p1">
 				<div id="p1q1">
-					Planned classes this semester? *<br>
-					<input type="text" required><br>
+					<label for="p1q11">Planned classes this semester? *</label> <br>
+					<input class="spinner" required id="p1q11" placeholder="e.g. 40"><br>
 				</div>
 				<br>
 				<div id="p1q2">
-					The number of classes you managed to take? *<br>
-					<input type="text" required><br>
+					<label for="p1q12">The number of classes you managed to take? *</label> <br>
+					<input class="spinner" id="p1q12" required placeholder="e.g. 40"><br>
 				</div>
 			</div>
 
@@ -93,13 +56,8 @@
 				</div>
 				<div id="p2q3" style="display:none;">
 					<br>
-					What changes in content would you suggest for future implementation?<br>
-					<input type="text"><br>
-				</div>
-				<br>
-				<div id="p2q4">
-					Please give an estimate of preparation time you had to devote beyond contact hours (per week).<br>
-					<input type="text" required><br>
+					<label for="p2q31">What changes in content would you suggest for future implementation?</label> <br>
+					<textarea name="p2q31" id="p2q31" rows="4" cols="50"></textarea>
 				</div>
 			</div>
 
@@ -126,13 +84,13 @@
 				</div>
 				<div id="p3q3" style="display:none;">
 					<br>
-					Please give feedback of LMS<br>
-					<input type="text"><br>
+					<label for="p3q31" >Please give feedback of LMS</label> <br>
+					<textarea name="p3q31" id="p3q31" rows="4" cols="50"></textarea>
 				</div>
 				<br>
 				<div id="p3q4">
 					Please give an estimate of preparation time you had to devote beyond contact hours (per week).<br>
-					<input type="text" required><br>
+					<input type="text" placeholder="e.g. 4 hrs" required><br>
 				</div>
 				<br>
 				<div id="p3q5">
@@ -150,10 +108,10 @@
 						<label for="p3q55">80-100%</label>
 					</div>
 				</div>
-				<br>
 				<div id="p3q6">
-					Mention any systematic observation worth noting about attendance.<br>
-					<input type="text" required><br>
+					<br>
+					<label for="p3q61">Mention any systematic observation worth noting about attendance.</label> <br>
+					<textarea name="p3q61" id="p3q61" rows="4" cols="50"></textarea>
 				</div>
 				<br>
 				<div id="p3q7">
@@ -184,8 +142,8 @@
 				<br>
 				<div id="p4" style="display:none;">
 					<div id="p4q1">
-						How many discussion hours were held per semester?<br>
-						<input type="text"><br>
+						<label for="p4q11">How many discussion hours were held per semester?</label> <br>
+						<input type="text" id="p4q11" placeholder="e.g 5"><br>
 					</div>
 					<br>
 					<div id="p4q2">
@@ -234,13 +192,13 @@
 				</div>
 				<div id="p5q2" style="display:none;">
 					<br>
-					Please state if there were any changes that became necessary in evaluation components ?<br>
-					<input type="text"><br>
+					<label for="p5q21">Please state if there were any changes that became necessary in evaluation components ?</label> <br>
+					<textarea name="p5q21" id="p5q21" rows="4" cols="50"></textarea>
 				</div>
 				<br>
 				<div id="p5q3">
-					Comment on specific features regarding performance of students that you may have noticed?<br>
-					<input type="text"><br>
+					<label for="p5q31">Comment on specific features regarding performance of students that you may have noticed?</label> <br>
+					<textarea name="p5a31" id="p5a31" rows="4" cols="50"></textarea>
 				</div>
 				<br>
 				<div id="p5q4">
@@ -260,34 +218,33 @@
 				</div>
 				<br>
 				<div id="p5q5">
-					Please mention any observations or note-worthy features regarding the garding procedure and grade distribution?<br>
-					<input type="text"><br>
+					<label for="p5q51">Please mention any observations or note-worthy features regarding the garding procedure and grade distribution?</label> <br>
+					<textarea name="p5q51" id="p5q51" rows="4" cols="50"></textarea>
 				</div>
 			</div>
 			<h3>Pedagogical Innovations</h3>
 			<div id="p6">
 				<div id="p6q1">
-					Please mention in brief if you tried any pedagogical innovations (such as flipped class, use of Learning
-					Management System, new logical sequencing of topics etc.). SCDMC will contact you for further details<br>
-					<input type="text"><br>
+					<label for="p6q11">Please mention in brief if you tried any pedagogical innovations (such as flipped class, use of Learning Management System, new logical sequencing of topics etc.). SCDMC will contact you for further details.</label> <br>
+					<textarea name="p6q11" id="p6q11" rows="4" cols="50"></textarea>
 				</div>
 				<br>
 				<div id="p6q2">
-					Suggestions for Action<br>
-					<input type="text"><br>
+					<label for="p6q21">Suggestions for Action</label> <br>
+					<textarea name="p3q21" id="p3q21" rows="4" cols="50"></textarea>
 				</div>
 				<br>
 				<div id="p6q3">
-					Please suggest or comment on any aspect that HoD/DPGC/DUGC /SCDMC should take note of<br>
-					<input type="text"><br>
+					<label for="p6q31">Please suggest or comment on any aspect that HoD/DPGC/DUGC /SCDMC should take note of</label> <br>
+					<textarea name="p6q31" id="p6q31" rows="4" cols="50"></textarea>
 				</div>
+				<br>
+				<button id="button" type="submit">Submit</button>
 			</div>
-			<br>
-			<input type="submit">
 		</div>
 	</form>
 	<script src="jquery-ui-1.12/external/jquery/jquery.js"></script>
-	<script src="jquery-ui-1.12/jquery-ui.js"></script>
+	<script src="jquery-ui-1.12/jquery-ui.min.js"></script>
 	<script>
 		$("#accordion").accordion({
 			collapsible: true,
@@ -295,7 +252,18 @@
 		});
 
 		$(".radioset").buttonset();
-		
+		$( "#button" ).button();
+		$( ".spinner" ).spinner({
+      spin: function( event, ui ) {
+        if ( ui.value > 50 ) {
+          $( this ).spinner( "value", 0 );
+          return false;
+        } else if ( ui.value < 0 ) {
+          $( this ).spinner( "value", 50 );
+          return false;
+        }
+      }
+    });
 	</script>
 </body>
 </html>
